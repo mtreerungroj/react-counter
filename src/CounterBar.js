@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { inc } from './actions'
+import { inc, reset } from './actions'
 
 class CounterBar extends Component {
   render () {
     return (
       <div>
         <button onClick={this.props.inc}>Click</button>
+        <button onClick={this.props.reset}>Reset</button>
       </div>
     )
   }
@@ -15,7 +16,8 @@ class CounterBar extends Component {
 let mapDispatchToProps = dispatch => {
   // dispatch is store.dispatch
   return {
-    inc: () => dispatch(inc())
+    inc: () => dispatch(inc()),
+    reset: () => dispatch(reset())
   }
 }
 

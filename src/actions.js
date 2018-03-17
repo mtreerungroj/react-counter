@@ -4,3 +4,9 @@ export const inc = (by = 1) => {
     by
   }
 }
+
+export const reset = () => {
+  return {
+    type: 'RESET'
+  }
+}
