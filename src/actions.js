@@ -5,6 +5,12 @@ export const inc = (by = 1) => {
   }
 }
 
+export const incWithDalay = by => {
+  let action = inc(by)
+  action.__delay = 2000
+  return action
+}
+
 export const reset = () => {
   return {
     type: 'RESET'
