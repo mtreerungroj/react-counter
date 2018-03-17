@@ -6,17 +6,9 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import counterDOS from './middlewares/counterDOS'
 import actionDelay from './middlewares/actionDelay'
+import counter from './reducers/counter'
 
-let reducer = (state = { val: 0 }, action) => {
-  if (action.type === 'INCREMENT') {
-    return { val: state.val + action.by }
-  } else if (action.type === 'RESET') {
-    return { val: 0 }
-  }
-  return state
-}
-
-let store = createStore(reducer, applyMiddleware(counterDOS, actionDelay))
+let store = createStore(counter, applyMiddleware(counterDOS, actionDelay))
 // setInterval(() => store.dispatch({ type: 'INCREMENT', by: 1 }), 1000)
 
 ReactDOM.render(
