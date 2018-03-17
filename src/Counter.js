@@ -15,7 +15,13 @@ class Counter extends Component {
   componentDidUpdate () {
     // after completely update component, may occurs in many situations
     if (this.state.green) {
-      setTimeout(() => this.setState({ green: false }), 2000)
+      if (this.__prevTimeout) {
+        clearTimeout(this.__prevTimeout)
+      }
+      this.__prevTimeout = setTimeout(
+        () => this.setState({ green: false }),
+        2000
+      )
     }
   }
 
