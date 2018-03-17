@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import counterDOS from './middlewares/counterDOS'
 
 let reducer = (state = { val: 0 }, action) => {
   if (action.type === 'INCREMENT') {
@@ -14,14 +15,7 @@ let reducer = (state = { val: 0 }, action) => {
   return state
 }
 
-// store อันไหน, next ให้ไปต่อหรือไม่, action ที่จะเรียกคืออะไร
-let middleware = store => next => action => {
-  if (store.getState().val < 5) {
-    next(action)
-  }
-}
-
-let store = createStore(reducer, applyMiddleware(middleware))
+let store = createStore(reducer, applyMiddleware(counterDOS))
 // setInterval(() => store.dispatch({ type: 'INCREMENT', by: 1 }), 1000)
 
 ReactDOM.render(
