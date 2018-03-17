@@ -2,8 +2,29 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Counter extends Component {
+  state = { green: false }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.val > this.props.val) {
+      this.setState({ green: true })
+    } else {
+      this.setState({ green: false })
+    }
+  }
+
+  componentDidUpdate () {
+    // after completely update component, may occurs in many situations
+    if (this.state.green) {
+      setTimeout(() => this.setState({ green: false }), 2000)
+    }
+  }
+
   render () {
-    return <div>{this.props.val}</div>
+    return (
+      <div style={{ color: this.state.green ? 'lightgreen' : 'black' }}>
+        {this.props.val}
+      </div>
+    )
   }
 }
 
