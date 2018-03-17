@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { inc } from './action'
 
 class IncButton extends Component {
   render () {
@@ -14,7 +15,7 @@ class IncButton extends Component {
 let mapDispatchToProps = dispatch => {
   // dispatch is store.dispatch
   return {
-    inc: () => dispatch({ type: 'INCREMENT', by: 1 })
+    inc: () => dispatch(inc())
   }
 }
 
