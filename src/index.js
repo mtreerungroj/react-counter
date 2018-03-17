@@ -12,7 +12,7 @@ let reducer = (state = { val: 0 }, action) => {
   return state
 }
 let store = createStore(reducer)
-setInterval(() => store.dispatch({ type: 'INCREMENT', by: 1 }), 1000)
+// setInterval(() => store.dispatch({ type: 'INCREMENT', by: 1 }), 1000)
 
 ReactDOM.render(
   <Provider store={store}>

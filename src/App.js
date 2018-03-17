@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Counter from './Counter'
-import IncButton from './IncButton'
+import CounterBar from './CounterBar'
 
 class App extends Component {
   render () {
     return (
       <div>
         <Counter />
-        <IncButton />
+        <CounterBar />
       </div>
     )
   }
