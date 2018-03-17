@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { inc } from './action'
+import { inc } from './actions'
 
-class IncButton extends Component {
+class CounterBar extends Component {
   render () {
     return (
       <div>
@@ -19,4 +19,4 @@ let mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(IncButton) // actually position null is mapStateToProps
+export default connect(null, mapDispatchToProps)(CounterBar) // actually position null is mapStateToProps
