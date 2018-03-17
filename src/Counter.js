@@ -8,7 +8,7 @@ class Counter extends Component {
 }
 
 let mapStateToProps = state => {
-  return { val: state.val }
+  return { val: state.val } // map state in name val
 }
 
 export default connect(mapStateToProps)(Counter)

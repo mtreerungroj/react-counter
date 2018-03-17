@@ -6,12 +6,13 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 let reducer = (state = { val: 0 }, action) => {
-  if (action === 'INCREMENT') {
+  if (action.type === 'INCREMENT') {
     return { val: state.val + action.by }
   }
   return state
 }
 let store = createStore(reducer)
+setInterval(() => store.dispatch({ type: 'INCREMENT', by: 1 }), 1000)
 
 ReactDOM.render(
   <Provider store={store}>
